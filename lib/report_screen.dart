@@ -1,7 +1,15 @@
+import 'package:climate/variables.dart';
 import 'package:flutter/material.dart';
-class Location_Screen extends StatelessWidget {
+import 'launching_screen.dart';
+import 'city_screen.dart';
+class Location_Screen extends StatefulWidget {
   const Location_Screen({super.key});
 
+  @override
+  State<Location_Screen> createState() => _Location_ScreenState();
+}
+
+class _Location_ScreenState extends State<Location_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,14 +22,30 @@ class Location_Screen extends StatelessWidget {
         ),
         child: SafeArea(child: Column(
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                    onTap: (){
+                      setLocation(context);
+                    },
+                    child: Icon(Icons.near_me,color: Colors.white,size: 50,)),
+                GestureDetector(
+                  onTap: ()
+                    {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>CityPage()));
+                    },
+                    child: Icon(Icons.location_city,color: Colors.white,size: 50,)),
+              ],
+            ),
             Expanded(flex: 1, child: SizedBox()),
             Expanded(flex: 1, child: Container(child: Row(
               children: [
                 SizedBox(width: 2,),
-                Text("9°",
-                  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 85,color: Colors.white),),
+                Text("$temperature°",
+                  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 100,color: Colors.white),),
                 SizedBox(width: 5,),
-                Text("☁", style: TextStyle(fontSize: 85,color: Colors.white))
+                Text(emoji.toString(), style: TextStyle(fontSize: 100))
               ],
             ),)),
             Expanded(flex: 1, child: SizedBox()),
@@ -30,7 +54,7 @@ class Location_Screen extends StatelessWidget {
                 children: [
                   SizedBox(width: 3,),
                   Expanded(
-                    child: Text("You'll need a dick to fuck!",
+                    child: Text('$desc',
                       style: TextStyle(fontWeight: FontWeight.w900, fontSize: 65,color: Colors.white),
                       textAlign: TextAlign.right,),
                   ),
