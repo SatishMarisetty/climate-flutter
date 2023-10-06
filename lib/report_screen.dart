@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
+class Location_Screen extends StatelessWidget {
+  const Location_Screen({super.key});
 
-class report extends StatefulWidget {
-  const report({super.key});
-
-  @override
-  State<report> createState() => _reportState();
-}
-
-class _reportState extends State<report> {
   @override
   Widget build(BuildContext context) {
-    return Text('hello');
+    return Text("Hello");
   }
 }
