@@ -25,7 +25,7 @@ Future<void> setLocation(BuildContext context) async{
   finally{
     setUri(coordinate);
     status=0;
-    Navigator.push(context, MaterialPageRoute(builder: (context) => Location_Screen()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Location_Screen()));
   }
 }
 class _LaunchState extends State<Launch> {

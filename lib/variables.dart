@@ -4,12 +4,12 @@ String coordinate ='https://api.openweathermap.org/data/2.5/forecast?lat=$lat&lo
 String? city;
 String cityLocation = 'https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric';
 Uri? uri;
-String emoji=getWeatherEmoji(),desc=getWeatherDescription();
-double temperature=9;
+double? temperature;
+String? name;
 var data;
 int? status;
 
-String getWeatherEmoji() {
+String getWeatherEmoji(double temperature) {
   if (temperature < -30) {
     return "❄️"; // Emoji for extremely cold
   } else if (temperature >= -30 && temperature < -10) {
@@ -29,7 +29,7 @@ String getWeatherEmoji() {
   }
 }
 
-String getWeatherDescription() {
+String getWeatherDescription(double temperature) {
   if (temperature < -30) {
     return "Brrr! It's colder than a polar bear's toenails!";
   } else if (temperature >= -30 && temperature < -10) {

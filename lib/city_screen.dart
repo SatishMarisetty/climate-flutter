@@ -61,7 +61,7 @@ class _CityPageState extends State<CityPage> {
                 onPressed: (){
                   setUri(cityLocation);
                   status=1;
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Location_Screen()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Location_Screen()));
                 },
                 child: Text("Get Weather",style: TextStyle(fontWeight: FontWeight.w900,color: Colors.white,fontSize: 25),),
               ),

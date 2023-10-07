@@ -30,6 +30,7 @@ class _Location_ScreenState extends State<Location_Screen> {
                       setLocation(context);
                     },
                     child: Icon(Icons.near_me,color: Colors.white,size: 50,)),
+                Text("$name",style: TextStyle(fontWeight: FontWeight.w900,fontSize: 25,color: Colors.white),),
                 GestureDetector(
                   onTap: ()
                     {
@@ -39,28 +40,29 @@ class _Location_ScreenState extends State<Location_Screen> {
               ],
             ),
             Expanded(flex: 1, child: SizedBox()),
-            Expanded(flex: 1, child: Container(child: Row(
+            Expanded(flex: 1, child: Row(
               children: [
                 SizedBox(width: 2,),
                 Text("$temperature°",
-                  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 100,color: Colors.white),),
+                  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 80,color: Colors.white),),
                 SizedBox(width: 5,),
-                Text(emoji.toString(), style: TextStyle(fontSize: 100))
+                Text(getWeatherEmoji(temperature!), style: TextStyle(fontSize: 80))
               ],
-            ),)),
+            ),),
             Expanded(flex: 1, child: SizedBox()),
             Expanded(flex: 3,
               child: Row(
                 children: [
                   SizedBox(width: 3,),
                   Expanded(
-                    child: Text('$desc',
+                    child: Text(getWeatherDescription(temperature!),
                       style: TextStyle(fontWeight: FontWeight.w900, fontSize: 65,color: Colors.white),
                       textAlign: TextAlign.right,),
                   ),
                   SizedBox(width: 3,),
                 ],
-              ),)
+              ),
+            ),
           ],
         )),
       ),
